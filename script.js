@@ -54,7 +54,7 @@ function generate(){
     let box = document.getElementById("container")
     let kriteria = document.getElementById('kri') 
     let iNef = parseInt(document.getElementById('nef').value)
-
+    let ranking = []
     for(let i = 1; i <= iNef; i++){
         let nama = document.getElementById(`headNef${i}`).value
         const h1 = document.createElement("h1")
@@ -99,12 +99,45 @@ function generate(){
         cellast.setAttribute("colspan", "3")
         cellast.style.fontWeight = "bold"
         cellast.innerHTML = "Total Bobot Evaluasi (TBE)"
-        lastrow.insertCell(2).innerHTML = totalnbe
+        lastrow.insertCell(2).innerHTML = parseFloat(totalnbe.toFixed(1))
 
         box.appendChild(h1)
         box.appendChild(table)
+
+        ranking.push({alternatif: nama, total: totalnbe});
     }
 
     let btn = document.getElementById("btn3")
     btn.style.display = "none"
+
+    // perangkingan
+    let rankcont = document.getElementById("ranking")
+    const ats = document.createAttribute("class")
+    ats.value = "rank"
+
+    const tbrank = document.createElement("table")
+    
+    const h1 = document.createElement("h1")
+    h1.innerHTML = "Rangking Data"
+
+    let rank = tbrank.insertRow()
+    rank.insertCell(0).innerHTML = "NO" 
+    rank.insertCell(1).innerHTML = "Alternatif" 
+    rank.insertCell(2).innerHTML = "Nilai TBE" 
+    rank.insertCell(3).innerHTML = "Ranking"
+
+    // **Mengurutkan berdasarkan Total NBE (TBE)**
+    ranking.sort((a, b) => b.total - a.total);
+
+    ranking.forEach((item, index) => {
+        let dd = tbrank.insertRow();
+        dd.insertCell(0).innerHTML = index + 1; 
+        dd.insertCell(1).innerHTML = item.alternatif;
+        dd.insertCell(2).innerHTML = item.total.toFixed(1);
+        dd.insertCell(3).innerHTML = `Ranking ${index + 1}`;
+    });
+
+    rankcont.appendChild(h1);
+    rankcont.setAttributeNode(ats)
+    rankcont.appendChild(tbrank);
 }

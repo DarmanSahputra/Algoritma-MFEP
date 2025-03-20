@@ -89,13 +89,27 @@ th {
 #container .tbnef1 tr:nth-child(1) td{
     background: #007bff;
 }
-
+.tbnef1 tr:nth-child(1) td{
+    font-weight: bold;
+}
 .peringatan{
     position: absolute;
     top: 0;
     left: 0;
     background: rgb(245, 104, 104);
     font-size: 10px;
+}
+
+#ranking table tr:nth-child(1) td{
+    background: #007bff;
+    font-weight: bold;
+}
+
+.rank{
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
 }
 
 @media screen and (max-width: 768px) {
