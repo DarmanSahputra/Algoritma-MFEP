@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" async defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>ALGORITMA MEFN</title>
+</head>
+<body>
+    <div class="card1">
+        <label for="kri">Jumlah Data Kriteria: </label>
+        <input type="text" name="kri" id="kri">
+        <button onclick="ShowKriteria()" id="btn1">Add</button>
+    </div>
+    <table border="1" id="Tbkriteria">
+        <tr>
+            <th>No</th>
+            <th>Kriteria</th>
+            <th>Bobot</th>
+        </tr>
+    </table>
+    <div class="card2">
+        <label for="nef">Jumlah Penawaran(NEF): </label>
+        <input type="text" name="nef" id="nef">
+        <button onclick="penentuanNEF()" id="btn2">Add</button>
+    </div>
+    <div id="tbcard2"></div>
+
+    <button onclick="generate()" class="generate" id="btn3">GENERATE</button>
+    <a href=""><button class="generate" type="reset" id="resetButton">RESET</button></a>
+    <div id="container"></div>
+
+    <script>
+        swal("Selamat Datang Di Penggunaan Algoritma MFEP!");
+    </script>
+</body>
+</html>
+    
