@@ -7,6 +7,9 @@ function ShowKriteria(){
         row.insertCell(1).innerHTML = `<input type="text" placeholder="Kriteria" id="kriteria${i}">`;
         row.insertCell(2).innerHTML = `<input type="num" id="bobot${i}" placeholder="Jumlah Bobot">`
     }
+
+    let btn = document.getElementById("btn1")
+    btn.style.display = "none"
 }
 
 
@@ -42,6 +45,9 @@ function penentuanNEF(){
     }
     tbc2.appendChild(nef)
     nef.setAttributeNode(att)
+
+    let btn = document.getElementById("btn2")
+    btn.style.display = "none"
 }
 
 function generate(){
@@ -99,4 +105,6 @@ function generate(){
         box.appendChild(table)
     }
 
+    let btn = document.getElementById("btn3")
+    btn.style.display = "none"
 }
